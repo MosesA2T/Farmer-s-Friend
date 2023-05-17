@@ -1,0 +1,27 @@
+package com.example.farmersfriend
+
+import android.annotation.SuppressLint
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.webkit.WebView
+import android.webkit.WebViewClient
+
+class DiseasesActivity : AppCompatActivity() {
+    private lateinit var webView: WebView
+    @SuppressLint("MissingInflatedId")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_diseases)
+
+        webView = findViewById(R.id.wb_webView)
+
+        webViewSetup()
+    }
+
+    private fun webViewSetup() {
+        webView.webViewClient = WebViewClient()
+        webView.apply {
+            loadUrl("https://www.galvmed.org/livestock-and-diseases/livestock-diseases/")
+        }
+    }
+}
